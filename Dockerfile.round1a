@@ -1,0 +1,5 @@
+FROM --platform=linux/amd64 python:3.10-slim
+WORKDIR /app
+COPY . /app
+RUN apt-get update && apt-get install -y build-essential poppler-utils &&     pip install --no-cache-dir PyMuPDF==1.22.3
+CMD ["python", "extract_outline.py"]
